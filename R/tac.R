@@ -1,9 +1,9 @@
 #' @title Titles Abstracts and First Claims for Drones
-#' @description The titles, abstracts and first claims for 18970 patent publications containing the word drone or drones from the \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation}
+#' @description The titles, abstracts and first claims for 15,776 patent publications containing the word drone or drones from the \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation}
 #' @details Patent data fields are commonly concatenated with a semicolon and require tidying for accurate counts.
 #' @usage data("tac")
 #' @aliases tac
-#' @format{ A data frame with 18,970 observations of 12 variables:
+#' @format{ A data frame with 15,776 observations of 12 variables:
 #'  \describe{
 #'    \item{\code{abstract}}{The original document abstract, 12798 93 percent of documents, a character vector}
 #'    \item{\code{abstract_english}}{The english document abstract, 12295 94 percent of documents, a character vector}

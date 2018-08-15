@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="Access the drones patent dataset — drones" />
 
-<meta property="og:description" content="A set of 18,970 patent publications containing the word drone or drones published between 1845 and the 2nd of November 2017 from the Clarivate Analytics Derwent Innovation database." />
+<meta property="og:description" content="A set of 15,776 patent applicationsm containing the word drone or drones published between 1845 and the 2nd of November 2017 from the Clarivate Analytics Derwent Innovation database. The unique 15,776 application numbers were derived from a raw dataset containing 18,970 publications." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -106,7 +106,7 @@
 
     <div class="ref-description">
     
-    <p>A set of 18,970 patent publications containing the word drone or drones published between 1845 and the 2nd of November 2017 from the <a href='https://clarivate.com/products/derwent-innovation/'>Clarivate Analytics Derwent Innovation</a> database.</p>
+    <p>A set of 15,776 patent applicationsm containing the word drone or drones published between 1845 and the 2nd of November 2017 from the <a href='https://clarivate.com/products/derwent-innovation/'>Clarivate Analytics Derwent Innovation</a> database. The unique 15,776 application numbers were derived from a raw dataset containing 18,970 publications.</p>
     
     </div>
 
@@ -114,31 +114,33 @@
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 18,970 observations of 22 variables:
+    <p>A data frame with 15,776 observations of 26 variables:
  <dl class='dl-horizontal'>
-   <dt><code>abstract</code></dt><dd><p>The original document abstract, 12798 93 percent of documents, a character vector</p></dd>
-   <dt><code>abstract_english</code></dt><dd><p>The english document abstract, 12295 94 percent of documents, a character vector</p></dd>
-   <dt><code>application_number</code></dt><dd><p>The long application number including the date, 15776 100 percent of documents, a character vector</p></dd>
-   <dt><code>applicant</code></dt><dd><p>The patent applicant name, also known as the assignee name, 7746 89 percent of documents, a character vector</p></dd>
-   <dt><code>applicant_cleaned</code></dt><dd><p>A cleaned version of the applicant name, 6,929 names, a character vector</p></dd>
-   <dt><code>cited_nonpatent</code></dt><dd><p>Literature citations, field is noisy, 29599, 36 percent of documents, a character vector</p></dd>
-   <dt><code>cited_patents</code></dt><dd><p>Patents cited in one or more documents, 93769 39 percent of documents, a character vector</p></dd>
-   <dt><code>citing_patents</code></dt><dd><p>Patents citing one or more documents, 79406 39 percent of documents, a character vector</p></dd>
-   <dt><code>cpc</code></dt><dd><p>The Cooperative Patent Classification Codes, 17077 93 percent of documents, a character vector</p></dd>
-   <dt><code>dwpi_family_dates</code></dt><dd><p>Family dates for DWPI family numbers, 5154 94 percent of documents, a character vector</p></dd>
-   <dt><code>dwpi_family_kind</code></dt><dd><p>Document kind codes for DWPI Family members, 42 94 percent of documents, a character vector</p></dd>
-   <dt><code>dwpi_family_numbers</code></dt><dd><p>DWPI family members - Derwent World Patent Index -, 31007 94 percent of documents, a character vector</p></dd>
-   <dt><code>first_claim</code></dt><dd><p>The first claim in a patent document, 15376 97 percent of documents, a character vector</p></dd>
-   <dt><code>inpadoc_family_members</code></dt><dd><p>INPADOC Family Members in long format with dates, 49625 97 percent of documents, a character vector</p></dd>
-   <dt><code>inpadoc_first_family_member</code></dt><dd><p>The earliest publication number in the inpadoc_family_members based on the date, 9,020, 98 percent of documents, a character vector</p></dd>
-   <dt><code>inventor</code></dt><dd><p>The original inventor name, 19630 94 percent of documents, a character vector</p></dd>
-   <dt><code>ipc</code></dt><dd><p>International Patent Classification - IPC - codes, 8727 98 percent of documents, a character vector</p></dd>
-   <dt><code>priority_number</code></dt><dd><p>Patent priority numbers in long format with dates, 23382 99 percent of documents, a character vector</p></dd>
-   <dt><code>publication_number</code></dt><dd><p>Publication numbers in short form minus dates, 18970 100 percent of documents, a character vector</p></dd>
-   <dt><code>publication_year</code></dt><dd><p>The year of publication of the publication numbers, 145 99 percent of documents, a character vector</p></dd>
-   <dt><code>related_application_numbers</code></dt><dd><p>Details of related patent applications, 7906 38 percent of documents, a character vector</p></dd>
-   <dt><code>title_english</code></dt><dd><p>The english title, 11113 99 percent of documents, a character vector</p></dd>
-   <dt><code>title_original</code></dt><dd><p>The original title, normally concatenated as English, French, German etc, 14324 97 percent of documents, a character vector</p></dd>
+   <dt><code>abstract</code></dt><dd><p>The original document abstract, a character vector</p></dd>
+   <dt><code>abstract_english</code></dt><dd><p>The english document abstract, a character vector</p></dd>
+   <dt><code>applicant</code></dt><dd><p>The patent applicant name, also known as the assignee name, a character vector</p></dd>
+   <dt><code>applicant_cleaned</code></dt><dd><p>A cleaned version of the applicant name</p></dd>
+   <dt><code>application_number</code></dt><dd><p>The long application number including the date, a character vector</p></dd>
+   <dt><code>basic_patent_date</code></dt><dd><p>Derwent Innovation basic patent date, a character vector</p></dd>
+   <dt><code>basic_patent_number</code></dt><dd><p>The Derwent Innovation basic patent number forming the base for the dwpi_family, a character vector</p></dd>
+   <dt><code>cited_nonpatent</code></dt><dd><p>Literature citations, field is noisy, a character vector</p></dd>
+   <dt><code>cited_patents</code></dt><dd><p>Patents cited in one or more documents, a character vector</p></dd>
+   <dt><code>citing_patents</code></dt><dd><p>Patents citing one or more documents, a character vector</p></dd>
+   <dt><code>cpc</code></dt><dd><p>The Cooperative Patent Classification Codes, a character vector</p></dd>
+   <dt><code>dwpi_family_dates</code></dt><dd><p>Family dates for DWPI family numbers, a character vector</p></dd>
+   <dt><code>dwpi_family_kind</code></dt><dd><p>Document kind codes for DWPI Family members, a character vector</p></dd>
+   <dt><code>dwpi_family_numbers</code></dt><dd><p>DWPI family members - Derwent World Patent Index -, a character vector</p></dd>
+   <dt><code>first_claim</code></dt><dd><p>The first claim in a patent document, a character vector</p></dd>
+   <dt><code>inpadoc_family_members</code></dt><dd><p>INPADOC Family Members in long format with dates, a character vector</p></dd>
+   <dt><code>inpadoc_first_family_member</code></dt><dd><p>The earliest publication number in the inpadoc_family_members based on the date, a character vector</p></dd>
+   <dt><code>inventors</code></dt><dd><p>The original inventor name, a character vector</p></dd>
+   <dt><code>ipc</code></dt><dd><p>International Patent Classification - IPC - codes, a character vector</p></dd>
+   <dt><code>priority_number</code></dt><dd><p>Patent priority numbers in long format with dates, a character vector</p></dd>
+   <dt><code>publication_number</code></dt><dd><p>Publication numbers in short form minus dates, a character vector</p></dd>
+   <dt><code>publication_year</code></dt><dd><p>The year of publication of the publication numbers, a character vector</p></dd>
+   <dt><code>related_application_numbers</code></dt><dd><p>Details of related patent applications such as continuations, continuations in part and divisional applications, a character vector</p></dd>
+   <dt><code>title_english</code></dt><dd><p>The english title, a character vector</p></dd>
+   <dt><code>title_original</code></dt><dd><p>The original title, normally concatenated as English, French, German etc, a character vector</p></dd>
     </dl></p>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -147,7 +149,7 @@
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Patent data fields are commonly concatenated with a semicolon and require tidying for accurate counts. The cited_nonpatent field in this dataset contains irrelevant legal status information and is messy. Applicant names (assignees) were cleaned using VantagePoint by fuzzy matching names grouped on the priority number followed by manual review. In the second step the cleaned data was fuzzy match grouped on the INPADOC family member number.</p>
+    <p>Field names in this dataset have been simplified from their original long form to make them easier to work with in R. Patent data fields are commonly concatenated with a semicolon and require tidying for accurate counts. The cited_nonpatent field in this dataset contains irrelevant legal status information and is messy. Applicant names (assignees) were cleaned using VantagePoint by fuzzy matching names grouped on the priority number followed by manual review. In the second step the cleaned data was fuzzy match grouped on the INPADOC family member number.</p>
     
 
   </div>

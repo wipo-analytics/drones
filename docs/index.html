@@ -78,8 +78,17 @@
 <div id="the-drones-patent-dataset" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#the-drones-patent-dataset" class="anchor"></a>The Drones Patent Dataset</h1></div>
-<p>The drones patent dataset is a dataset of 18,970 patent publications that refer to the word drone or drones somewhere in the text. The dataset is based on a search of patent documents from the main patent jurisdictions for the period 1845 to early November 2017 using the <a href="https://clarivate.com/products/derwent-innovation/">Clarivate Analytics Derwent Innovation</a> database. The dataset is intended for use in training in patent analytics as described on the <a href="https://github.com/wipo-analytics">WIPO analytics</a> home page and is deliberately noisy. While this is live valid data, it is not intended to be used to make definitive statements about patent activity for drone technology and is not expected to be complete. The drones patent dataset is part of work in progress on the WIPO Patent Analytics Handbook.</p>
-<p>The drones dataset is contained in an R package but you can use the drones dataset with or without R. Let’s cover both options.</p>
+<p>The drones package provides access to patent datasets containing references to drones in the text. The datasets are intended to be used for training in patent analytics by providing access to raw and cleaned data in one place.</p>
+<p>The main <code>drones</code> dataset consists of 15,570 patent applications that refer to the word drone or drones somewhere in the text. The dataset is based on a search of patent documents from the main patent jurisdictions for the period 1845 to early November 2017 using the <a href="https://clarivate.com/products/derwent-innovation/">Clarivate Analytics Derwent Innovation</a> database.</p>
+<p>A second drones dataset called <code>lens_drones</code> contains 9,071 patent documents from the Lens patent database that refer to the word drone or drones somewhere in the text. This dataset consists of a single family representative of 16,419 patent publications returned by the search of the full text. This data will be of interest to researchers wishing to work exclusively with open access databases. A third dataset <code>patsnap_family</code> from the <a href="http://www.patsnap.com/">Patsnap</a> commercial database is intended for use in patent family analysis and is based on a search of patent claims. Additional datasets will be added over time.</p>
+<p>The data within the drones package is intended exclusively for use in training in patent analytics as described on the <a href="https://github.com/wipo-analytics">WIPO analytics</a> home page. It is important to note that the dataset is deliberately noisy in order to allow support work on methods for cleaning data. While this is valid data, it is not intended to be used to make definitive statements about patent activity for drone technology and it is not expected to be complete. The drones patent dataset is part of work in progress on the WIPO Patent Analytics Handbook.</p>
+<p>The drones dataset is contained in an R package but you can use the drones dataset with or without R.</p>
+<div id="download-for-use-outside-rstudio" class="section level3">
+<h3 class="hasAnchor">
+<a href="#download-for-use-outside-rstudio" class="anchor"></a>Download for use outside RStudio</h3>
+<p>If you want to work outside RStudio you can download the core <code>drones</code> reference file as a zip file containing the data in .csv format <a href="https://storage.googleapis.com/owa/drones.csv.zip">here</a>. Other datasets within the R package are simply subsets of the core datasets. See the online reference page for details.</p>
+<p>The <code>lens_drones</code> dataset can be downloaded as a zip file <a href="https://storage.googleapis.com/owa/lens_drones.csv.zip">here</a>.</p>
+</div>
 <div id="install-in-rstudio" class="section level3">
 <h3 class="hasAnchor">
 <a href="#install-in-rstudio" class="anchor"></a>Install in RStudio</h3>
@@ -91,47 +100,46 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"wipo-analytics/drones"</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(drones)</a></code></pre></div>
 </div>
-<div id="download-for-use-outside-rstudio" class="section level3">
+<div id="what-is-in-the-datasets" class="section level3">
 <h3 class="hasAnchor">
-<a href="#download-for-use-outside-rstudio" class="anchor"></a>Download for use outside RStudio</h3>
-<p>If you want to work outside RStudio you can download the dataset reference file as a zip file containing the data in .csv format <a href="https://storage.googleapis.com/owa/drones.zip">here</a>.</p>
-</div>
-<div id="what-is-in-the-dataset" class="section level3">
-<h3 class="hasAnchor">
-<a href="#what-is-in-the-dataset" class="anchor"></a>What is in the dataset</h3>
-<p>The dataset is documented inside the R package. If you are not using R it includes the following columns.</p>
-<p>A data frame with 18,970 observations of 22 variables:</p>
+<a href="#what-is-in-the-datasets" class="anchor"></a>What is in the datasets</h3>
+<p>The datasets are fully documented inside the R package.</p>
+<p>The core drones dataset is a table with 15,570 observations of 22 variables:</p>
 <ul>
-<li><p><code>abstract</code> The original document abstract, 12798 abstract (93% of documents), a character vector</p></li>
-<li><p><code>abstract_english</code> The English document abstract, 12295 English abstracts (94% of documents), a character vector</p></li>
-<li><p><code>application_number</code> The long application number including the date, 15776 numbers (100% of documents), a character vector</p></li>
-<li><p><code>assignee</code> The original applicant or assignee name, 7746 raw names, (89% of documents), a character vector</p></li>
-<li><p><code>applicant_cleaned</code> A cleaned version of the applicant name, 6929 cleaned names, a character vector</p></li>
-<li><p><code>cited_nonpatent</code> Literature citations, field is noisy, 29599 references (36% of documents), a character vector</p></li>
-<li><p><code>cited_patents</code> Patents cited in one or more documents, 93769 cited numbers (39% percent of documents), a character vector</p></li>
-<li><p><code>citing_patents</code> Patents citing one or more documents, 79406 citing numbers (39% of documents), a character vector</p></li>
-<li><p><code>cpc</code> The Cooperative Patent Classification Codes (CPC), 17077 CPC codes (93% of documents), a character vector</p></li>
-<li><p><code>dwpi_family_dates</code> Family dates for DWPI family numbers (Derwent World Patent Index), 5154 dates (94% of documents), a character vector</p></li>
-<li><p><code>dwpi_family_kind</code> Document kind codes for DWPI Family members, 42 kind codes (94% of documents), a character vector</p></li>
-<li><p><code>dwpi_family_numbers</code> DWPI family members, 31007 numbers (94% of documents), a character vector</p></li>
-<li><p><code>first_claim</code> The first claim in a patent document, 15376 first claims (97% of documents), a character vector</p></li>
-<li><p><code>inpadoc_family_members</code> INPADOC Family Members in long format with dates, 49625 numbers (97% of documents), a character vector</p></li>
-<li><p><code>inpadoc_first_family_member</code> The earliest publication number in the <code>inpadoc_family_members</code> based on the date, 9,020 numbers (98% of documents), a character vector</p></li>
-<li><p><code>inventor</code> The original inventor name, 19630 names (94% of documents), a character vector</p></li>
-<li><p><code>ipc</code> International Patent Classification (IPC) codes, 8727 codes (98% of documents), a character vector</p></li>
-<li><p><code>priority_number</code> Patent priority numbers in long for with dates, 23382 numbers (99% of documents), a character vector</p></li>
-<li><p><code>publication_number</code> Publication numbers in short form minus dates, 18970 numbers (100% of documents), a character vector</p></li>
-<li><p><code>publication_year</code> The year of publication of the publication numbers, 145 years (99% of documents), a character vector</p></li>
-<li><p><code>related_application_numbers</code> Details of related patent applications, 7906 numbers (38% of documents), a character vector</p></li>
-<li><p><code>title_english</code> The English title, 11113 documents (99% percent of documents), a character vector</p></li>
-<li><p><code>title_original</code> The original title, normally concatenated as English, French, German etc., 14324 titles (97% percent of documents), a character vector</p></li>
+<li><p><code>abstract</code> The original document abstract, a character vector. 12,452 (94%)</p></li>
+<li><p><code>abstract_english</code> The English document abstract, a character vector. 12,027 (95%)</p></li>
+<li><p><code>application_number</code> The long application number including the date, a character vector. 15776, (100%)</p></li>
+<li><p><code>basic_patent_date</code> Derwent Innovation basic patent date, a character vector. 2325 (93%)</p></li>
+<li><p><code>basic_patent_number</code> The Derwent Innovation basic patent number forming the base for the dwpi_family, a character vector. 10,281 (93%)</p></li>
+<li><p><code>applicant</code> The original applicant or assignee name, a character vector. 7488 (90%)</p></li>
+<li><p><code>applicant_cleaned</code> A cleaned version of the applicant name, a character vector. 6744 (90%)</p></li>
+<li><p><code>cited_nonpatent</code> Literature citations, field is noisy, a character vector. 28361 (30%)</p></li>
+<li><p><code>cited_patents</code> Patents cited in one or more documents, a character vector. 93703 (71%)</p></li>
+<li><p><code>citing_patents</code> Patents citing one or more documents, a character vector. 64328 (39%)</p></li>
+<li><p><code>cpc</code> The Cooperative Patent Classification Codes (CPC), a character vector 17077 (92%)</p></li>
+<li><p><code>dwpi_family_dates</code> Family dates for DWPI family numbers (Derwent World Patent Index), a character vector. 5153 (93%)</p></li>
+<li><p><code>dwpi_family_kind</code> Document kind codes for DWPI Family members, a character vector. 42 (93%)</p></li>
+<li><p><code>dwpi_family_numbers</code> DWPI family members, a character vector. 30984 (93%)</p></li>
+<li><p><code>first_claim</code> The first claim in a patent document, a character vector. 13332 (97%)</p></li>
+<li><p><code>inpadoc_family_members</code> INPADOC Family Members in long format with dates, a character vector. 49,625, (98%)</p></li>
+<li><p><code>inpadoc_first_family_member</code> The earliest publication number in the <code>inpadoc_family_members</code> based on the date, a character vector. 9020 (98%)</p></li>
+<li><p><code>inventor</code> The original inventor name, a character vector. 19293 (94%)</p></li>
+<li><p><code>ipc</code> International Patent Classification (IPC) codes, a character vector. 8489 (98%)</p></li>
+<li><p><code>priority_number</code> Patent priority numbers in long for with dates, a character vector. 23379 (99%)</p></li>
+<li><p><code>publication_number</code> Publication numbers in short form minus dates, a character vector. 15776 (100%)</p></li>
+<li><p><code>publication_year</code> The year of publication of the publication numbers, a character vector. 145 (99%)</p></li>
+<li><p><code>related_application_numbers</code> Details of related patent applications, a character vector. 7124 (35%)</p></li>
+<li><p><code>title_english</code> The English title, a character vector. 10815 (99%)</p></li>
+<li><p><code>title_original</code> The original title, normally concatenated as English, French, German etc., character vector. 13,753 (97%)</p></li>
 </ul>
-<p>Note that the coverage of each field typically does not add up to 100 percent of the documents. These numbers and percentages are provided above to help you work out what to expect when working with a specific field based on processing of the raw data in VantagePoint from Search Technology Inc. When working with these reference numbers it should be noted that the percentages are approximate. If you find that the numbers vary by more than between 2 and 10 records then you should cross check your approach to the data. This will commonly arise where white space is not trimmed after deconcatenating the data. For R users it is possible that foreign characters are present in the main text fields. In the event you run into problems please raise an issue and provide details of the problem.</p>
+<p>Note that the coverage of each field typically does not add up to 100 percent of the documents. The numbers provided above are intended to provide reference counts for cross-checking when developing counts of the data. Typical reasons for variance from these counts will be failing to trim leading and trailing white space when separating concatenated fields on the semi-colon and NAs (Not Available) that appear in the data in R where there is less than 100% coverage. Where variance between the reference numbers is high you should investigate why.</p>
+<p>For R users it is possible that foreign characters are present in the main text fields. In the event you run into problems please raise an issue and provide details of the problem.</p>
 </div>
-<div id="things-you-need-to-know" class="section level3">
+<div id="how-to-separate-concatenated-columns" class="section level3">
 <h3 class="hasAnchor">
-<a href="#things-you-need-to-know" class="anchor"></a>Things you need to know</h3>
-<p>Patent data is not tidy. Many of the columns contain data that is concatenated (joined) with a semicolon as a delimeter. This means that in order to access the data for counting you will need to separate the data onto the relevant row and you will also need to trim the data. You can do this easily with the tidyverse packages.</p>
+<a href="#how-to-separate-concatenated-columns" class="anchor"></a>How to separate concatenated columns</h3>
+<p>Patent data is not tidy. Many of the columns contain data that is concatenated (joined) with a semicolon as a delimeter. In the case of the Lens patent data the delimited is a double semicolon.</p>
+<p>This means that in order to access the data for counting you will need to separate the data onto the relevant row and you will also need to trim the data. You can do this easily with the tidyverse packages.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"tidyverse"</span>)</a></code></pre></div>
 <p>Load the library</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
@@ -156,6 +164,12 @@
 ##  9 Elwha LLC                                     166
 ## 10 SONY CORPORATION                              148
 ## # ... with 6,919 more rows</code></pre>
+<p>If you wanted to run the same operation as a reusable function you could use this. Note that this has been adapted for tidy evaluation. In some fields it will be common for NA (not available) to appear prominently. Consider adding <code>dplyr::drop_na</code> to address these cases.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">separate_rows_trim &lt;-<span class="st"> </span><span class="cf">function</span>(df, col, sep){</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  df <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/tidyr/topics/separate_rows">separate_rows</a></span>(col, <span class="dt">sep =</span> sep) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="op">!!</span>col <span class="op">:</span><span class="er">=</span><span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/stringr/topics/str_trim">str_trim</a></span>(.[[col]], <span class="dt">side =</span> <span class="st">"both"</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/tally.html">count</a></span>(<span class="op">!!</span>col <span class="op">:</span><span class="er">=</span><span class="st"> </span>.[[col]], <span class="dt">sort =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">}</a></code></pre></div>
 <p>We’ll add more to the package by the way of guides and examples as we develop it. For the moment this helps to get you started.</p>
 </div>
 <div id="attribution" class="section level3">
@@ -199,7 +213,7 @@
 <li><a href="https://cran.r-project.org/"><img src="https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg" alt="minimal R version"></a></li>
 <li><a href="https://cran.r-project.org/package=drones"><img src="http://www.r-pkg.org/badges/version/drones" alt="CRAN_Status_Badge"></a></li>
 <li><a href="commits/master"><img src="https://img.shields.io/badge/Package%20version-0.0.0.9000-orange.svg?style=flat-square" alt="packageversion"></a></li>
-<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2018--06--15-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2018--08--15-yellowgreen.svg" alt="Last-changedate"></a></li>
 </ul>
 </div>
 </div>

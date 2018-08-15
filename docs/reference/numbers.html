@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="patent numbers — numbers" />
 
-<meta property="og:description" content="A set of 18,970 patent publication numbers and associated patent numbers for use in generating statistics with the drones dataset from the Clarivate Analytics Derwent Innovation." />
+<meta property="og:description" content="A set of 15,776 patent application numbers and associated patent numbers for use in generating statistics with the drones dataset from the Clarivate Analytics Derwent Innovation." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -106,7 +106,7 @@
 
     <div class="ref-description">
     
-    <p>A set of 18,970 patent publication numbers and associated patent numbers for use in generating statistics with the drones dataset from the <a href='https://clarivate.com/products/derwent-innovation/'>Clarivate Analytics Derwent Innovation</a>.</p>
+    <p>A set of 15,776 patent application numbers and associated patent numbers for use in generating statistics with the drones dataset from the <a href='https://clarivate.com/products/derwent-innovation/'>Clarivate Analytics Derwent Innovation</a>.</p>
     
     </div>
 
@@ -114,20 +114,23 @@
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 18,970 observations of 12 variables:
+    <p>A data frame with 15,776 observations of 15 variables:
  <dl class='dl-horizontal'>
-   <dt><code>application_number</code></dt><dd><p>The long application number including the date, 15776 100 percent of documents, a character vector</p></dd>
-   <dt><code>cited_patents</code></dt><dd><p>Patents cited in one or more documents, 93769 39 percent of documents, a character vector</p></dd>
-   <dt><code>citing_patents</code></dt><dd><p>Patents citing one or more documents, 79406 39 percent of documents, a character vector</p></dd>
-   <dt><code>dwpi_family_dates</code></dt><dd><p>Family dates for DWPI family numbers, 5154 94 percent of documents, a character vector</p></dd>
-   <dt><code>dwpi_family_kind</code></dt><dd><p>Document kind codes for DWPI Family members, 42 94 percent of documents, a character vector</p></dd>
-   <dt><code>dwpi_family_numbers</code></dt><dd><p>DWPI family members - Derwent World Patent Index -, 31007 94 percent of documents, a character vector</p></dd>
-   <dt><code>inpadoc_family_members</code></dt><dd><p>INPADOC Family Members in long format with dates, 49625 97 percent of documents, a character vector</p></dd>
-   <dt><code>inpadoc_first_family_member</code></dt><dd><p>The earliest publication number in the inpadoc_family_members based on the date, 9,020, 98 percent of documents, a character vector</p></dd>
-   <dt><code>priority_number</code></dt><dd><p>Patent priority numbers in long format with dates, 23382 99 percent of documents, a character vector</p></dd>
-   <dt><code>publication_number</code></dt><dd><p>Publication numbers in short form minus dates, 18970 100 percent of documents, a character vector</p></dd>
-   <dt><code>publication_year</code></dt><dd><p>The year of publication of the publication numbers, 145 99 percent of documents, a character vector</p></dd>
-   <dt><code>related_application_numbers</code></dt><dd><p>Details of related patent applications, 7906 38 percent of documents, a character vector</p></dd>
+   <dt><code>application_number</code></dt><dd><p>The long application number including the date, a character vector</p></dd>
+   <dt><code>basic_patent_number</code></dt><dd><p>DWPI basic patent number forming the base of the dwpi_family_numbers, a character vector</p></dd>
+   <dt><code>basic_patent_date</code></dt><dd><p>DWPI basic patent date, a character vector</p></dd>
+   <dt><code>cited_patents</code></dt><dd><p>Patents cited in one or more documents, a character vector</p></dd>
+   <dt><code>citing_patents</code></dt><dd><p>Patents citing one or more documents, a character vector</p></dd>
+   <dt><code>dwpi_family_dates</code></dt><dd><p>Family dates for DWPI family numbers, a character vector</p></dd>
+   <dt><code>dwpi_family_kind</code></dt><dd><p>Document kind codes for DWPI Family members,, a character vector</p></dd>
+   <dt><code>dwpi_family_numbers</code></dt><dd><p>DWPI family members - Derwent World Patent Index -, a character vector</p></dd>
+   <dt><code>dwpi_family_members_count</code></dt><dd><p>DWPI family members count- Derwent World Patent Index -, a character vector</p></dd>
+   <dt><code>inpadoc_family_members</code></dt><dd><p>INPADOC Family Members in long format with dates, a character vector</p></dd>
+   <dt><code>inpadoc_first_family_member</code></dt><dd><p>The earliest publication number in the inpadoc_family_members based on the date, a character vector</p></dd>
+   <dt><code>priority_number</code></dt><dd><p>Patent priority numbers in long format with dates, a character vector</p></dd>
+   <dt><code>publication_number</code></dt><dd><p>Publication numbers in short form minus dates, a character vector</p></dd>
+   <dt><code>publication_year</code></dt><dd><p>The year of publication of the publication numbers, a character vector</p></dd>
+   <dt><code>related_application_numbers</code></dt><dd><p>Details of related patent applications, a character vector</p></dd>
     </dl></p>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
