@@ -79,15 +79,14 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#the-drones-patent-dataset" class="anchor"></a>The Drones Patent Dataset</h1></div>
 <p>The drones package provides access to patent datasets containing references to drones in the text. The datasets are intended to be used for training in patent analytics by providing access to raw and cleaned data in one place.</p>
-<p>The main <code>drones</code> dataset consists of 15,570 patent applications that refer to the word drone or drones somewhere in the text. The dataset is based on a search of patent documents from the main patent jurisdictions for the period 1845 to early November 2017 using the <a href="https://clarivate.com/products/derwent-innovation/">Clarivate Analytics Derwent Innovation</a> database.</p>
-<p>A second drones dataset called <code>lens_drones</code> contains 9,071 patent documents from the Lens patent database that refer to the word drone or drones somewhere in the text. This dataset consists of a single family representative of 16,419 patent publications returned by the search of the full text. This data will be of interest to researchers wishing to work exclusively with open access databases. A third dataset <code>patsnap_family</code> from the <a href="http://www.patsnap.com/">Patsnap</a> commercial database is intended for use in patent family analysis and is based on a search of patent claims. Additional datasets will be added over time.</p>
-<p>The data within the drones package is intended exclusively for use in training in patent analytics as described on the <a href="https://github.com/wipo-analytics">WIPO analytics</a> home page. It is important to note that the dataset is deliberately noisy in order to allow support work on methods for cleaning data. While this is valid data, it is not intended to be used to make definitive statements about patent activity for drone technology and it is not expected to be complete. The drones patent dataset is part of work in progress on the WIPO Patent Analytics Handbook.</p>
+<p>The main <code>drones</code> dataset consists of 15,570 patent applications that refer to the word drone or drones somewhere in the text. The dataset is based on a search of patent documents from the main patent jurisdictions for the period 1845 to 2017 using the <a href="https://clarivate.com/products/derwent-innovation/">Clarivate Analytics Derwent Innovation</a> database. Additional supplementary datasets may be provided in future updates.</p>
+<p>The data within the drones package is intended exclusively for use in training in patent analytics as described on the <a href="https://github.com/wipo-analytics">WIPO analytics</a> home page. It is important to note that the dataset is deliberately noisy in order to work on methods for cleaning data. This is a training dataset and is not intended to be used to make definitive statements about patent activity for drone technology and it is not expected to be complete. The drones patent dataset is part of work in progress on the <a href="https://wipo-analytics.github.io/handbook/">WIPO Patent Analytics Handbook</a>.</p>
 <p>The drones dataset is contained in an R package but you can use the drones dataset with or without R.</p>
 <div id="download-for-use-outside-rstudio" class="section level3">
 <h3 class="hasAnchor">
 <a href="#download-for-use-outside-rstudio" class="anchor"></a>Download for use outside RStudio</h3>
 <p>If you want to work outside RStudio you can download the core <code>drones</code> reference file as a zip file containing the data in .csv format <a href="https://storage.googleapis.com/owa/drones.csv.zip">here</a>. Other datasets within the R package are simply subsets of the core datasets. See the online reference page for details.</p>
-<p>The <code>lens_drones</code> dataset can be downloaded as a zip file <a href="https://storage.googleapis.com/owa/lens_drones.csv.zip">here</a>.</p>
+<!---The `lens_drones` dataset can be downloaded as a zip file [here](https://storage.googleapis.com/owa/lens_drones.csv.zip).--->
 </div>
 <div id="install-in-rstudio" class="section level3">
 <h3 class="hasAnchor">
@@ -166,7 +165,7 @@
 ## # ... with 6,919 more rows</code></pre>
 <p>If you wanted to run the same operation as a reusable function you could use this. Note that this has been adapted for tidy evaluation. In some fields it will be common for NA (not available) to appear prominently. Consider adding <code>dplyr::drop_na</code> to address these cases.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">separate_rows_trim &lt;-<span class="st"> </span><span class="cf">function</span>(df, col, sep){</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  df <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/tidyr/topics/separate_rows">separate_rows</a></span>(col, <span class="dt">sep =</span> sep) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  df <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/separate_rows.html">separate_rows</a></span>(col, <span class="dt">sep =</span> sep) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="op">!!</span>col <span class="op">:</span><span class="er">=</span><span class="st"> </span>stringr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/stringr/topics/str_trim">str_trim</a></span>(.[[col]], <span class="dt">side =</span> <span class="st">"both"</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/tally.html">count</a></span>(<span class="op">!!</span>col <span class="op">:</span><span class="er">=</span><span class="st"> </span>.[[col]], <span class="dt">sort =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5">}</a></code></pre></div>
@@ -213,7 +212,7 @@
 <li><a href="https://cran.r-project.org/"><img src="https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg" alt="minimal R version"></a></li>
 <li><a href="https://cran.r-project.org/package=drones"><img src="http://www.r-pkg.org/badges/version/drones" alt="CRAN_Status_Badge"></a></li>
 <li><a href="commits/master"><img src="https://img.shields.io/badge/Package%20version-0.0.0.9000-orange.svg?style=flat-square" alt="packageversion"></a></li>
-<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2018--08--15-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2018--12--14-yellowgreen.svg" alt="Last-changedate"></a></li>
 </ul>
 </div>
 </div>
