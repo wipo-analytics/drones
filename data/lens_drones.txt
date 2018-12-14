@@ -1,0 +1,21 @@
+lens drones - 
+
+Search to December 31 2017 conducted on the 14/08/2018. drone or drones in full text, Returned 9071 first filings. 
+
+Junk from the scientific literature was present on 36 lines and removed. 
+
+
+library(readr)
+dataset <- read_csv("data/lens_drones_2017.csv")
+View(dataset)
+
+https://storage.cloud.google.com/owa/drones.csv.zip?organizationId=428118196898&_ga=2.30359416.-63146494.1534161590
+
+https://storage.googleapis.com/owa/drones.csv.zip
+
+To update use 
+
+1. New Pull Request in the Source repo below your repo
+2. Then choose Pull Request in the Source Repo and Compare across forks. 
+3. The base fork should be your repo (e.g. wipo-analytics) and the head fork should be the source repo (e.g. poldham). 
+4. Make pull request and merge. 

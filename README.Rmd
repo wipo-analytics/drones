@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, cache = TRU
 
 The drones package provides access to patent datasets containing references to drones in the text. The datasets are intended to be used for training in patent analytics by providing access to raw and cleaned data in one place. 
 
-The main `drones` dataset consists of 15,570 patent applications that refer to the word drone or drones somewhere in the text. The dataset is based on a search of patent documents from the main patent jurisdictions for the period 1845 to 2017 using the [Clarivate Analytics Derwent Innovation](https://clarivate.com/products/derwent-innovation/) database. Additional supplementary datasets may be provided in future updates. 
+The main `drones` dataset consists of 15,570 patent applications that refer to the word drone or drones somewhere in the text. The dataset is based on a search of patent documents from the main patent jurisdictions for the period 1845 to 2017 using the [Clarivate Analytics Derwent Innovation](https://clarivate.com/products/derwent-innovation/) database. Additional supplementary datasets may be provided in future updates.
 
 The data within the drones package is intended exclusively for use in training in patent analytics as described on the [WIPO analytics](https://github.com/wipo-analytics) home page. It is important to note that the dataset is deliberately noisy in order to work on methods for cleaning data. This is a training dataset and is not intended to be used to make definitive statements about patent activity for drone technology and it is not expected to be complete. The drones patent dataset is part of work in progress on the [WIPO Patent Analytics Handbook](https://wipo-analytics.github.io/handbook/). 
 
@@ -32,8 +32,6 @@ The drones dataset is contained in an R package but you can use the drones datas
 ### Download for use outside RStudio
 
 If you want to work outside RStudio you can download the core `drones` reference file as a zip file containing the data in .csv format [here](https://storage.googleapis.com/owa/drones.csv.zip). Other datasets within the R package are simply subsets of the core datasets. See the online reference page for details. 
-
-<!---The `lens_drones` dataset can be downloaded as a zip file [here](https://storage.googleapis.com/owa/lens_drones.csv.zip).--->
 
 ### Install in RStudio
 
