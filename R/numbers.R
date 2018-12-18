@@ -1,5 +1,5 @@
 #' @title patent numbers
-#' @description A set of 15,776 patent application numbers and associated patent numbers for use in generating statistics with the drones dataset from the \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation}.
+#' @description A set of 15,776 patent application numbers and associated patent numbers for use in generating statistics with the drones dataset from \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation}.
 #' @details Patent data fields are commonly concatenated with a semicolon and require tidying for accurate counts.
 #' @usage data("numbers")
 #' @aliases numbers

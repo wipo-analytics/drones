@@ -1,5 +1,5 @@
 #' @title Patent Applicants
-#' @description Patent applicant names (also known as assignees) from a set of 15,775 patent applications containing the word drone or drones published between 1845 and the 2nd of November 2017 from the \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation} database.
+#' @description Patent applicant names (also known as assignees) from a set of 15,775 patent applications containing the word drone or drones published between 1845 and 2017 from the \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation} database.
 #' @details Patent data fields are commonly concatenated with a semicolon and require tidying for accurate counts. The cited_nonpatent field in this dataset contains irrelevant legal status information and is messy.
 #' @usage data("applicants")
 #' @aliases applicants

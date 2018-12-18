@@ -1,7 +1,7 @@
 ---
-title: "Untitled"
-author: "Paul Oldham"
-date: "08/06/2018"
+title: ""
+author: ""
+date: ""
 output: github_document
 ---
 <img src="man/figures/logo.png" align="left" />
@@ -31,7 +31,7 @@ The drones dataset is contained in an R package but you can use the drones datas
 
 ### Download for use outside RStudio
 
-If you want to work outside RStudio you can download the core `drones` reference file as a zip file containing the data in .csv format [here](https://storage.googleapis.com/owa/drones.csv.zip). Other datasets within the R package are simply subsets of the core datasets. See the online reference page for details. 
+If you want to work outside RStudio you can download the core `drones` reference file as a zip file containing the data in .csv format [here](https://storage.googleapis.com/owa/drones.csv.zip). Other datasets within the R package are simply subsets of the core datasets. See the online [reference page](https://wipo-analytics.github.io/drones/reference/index.html) for details. 
 
 ### Install in RStudio
 

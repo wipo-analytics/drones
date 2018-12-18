@@ -1,5 +1,5 @@
 #' @title Access the drones patent dataset
-#' @description A set of 15,776 patent applicationsm containing the word drone or drones published between 1845 and the 2nd of November 2017 from the \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation} database. The unique 15,776 application numbers were derived from a raw dataset containing 18,970 publications.
+#' @description A set of 15,776 patent applicationsm containing the word drone or drones published between 1845 and 2017 from the \href{https://clarivate.com/products/derwent-innovation/}{Clarivate Analytics Derwent Innovation} database. The unique 15,776 application numbers were derived from a raw dataset containing 18,970 publications.
 #' @details Field names in this dataset have been simplified from their original long form to make them easier to work with in R. Patent data fields are commonly concatenated with a semicolon and require tidying for accurate counts. The cited_nonpatent field in this dataset contains irrelevant legal status information and is messy. Applicant names (assignees) were cleaned using VantagePoint by fuzzy matching names grouped on the priority number followed by manual review. In the second step the cleaned data was fuzzy match grouped on the INPADOC family member number.
 #' @usage data("drones")
 #' @aliases drones
